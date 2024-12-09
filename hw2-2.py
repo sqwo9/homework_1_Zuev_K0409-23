@@ -1,8 +1,15 @@
-list1 = []
-l1 = [list1.append(i) for i in input('Введите первый список через пробелы - ').split(' ')]
-list2 = []
-l2 = [list2.append(i) for i in input('Введите второй список через пробелы - ').split(' ')]
-list = list1 + list2
-list.sort()
+from collections import deque
 
-print(list)
+def merge_and_sort_lists(list1, list2):
+    # Создаем объединенный deque из двух списков
+    combined_deque = deque(list1 + list2)
+    
+    # Сортируем deque и преобразуем его обратно в список
+    return sorted(combined_deque)
+
+# Пример использования
+list1 = [1, 12, 34, 54]
+list2 = [2, 11, 45, 232]
+
+sorted_list = merge_and_sort_lists(list1, list2)
+print(sorted_list)
